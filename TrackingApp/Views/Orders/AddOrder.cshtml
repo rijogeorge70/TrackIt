@@ -1,0 +1,49 @@
+﻿@model TrackingApp.Models.Orders
+
+@{
+    ViewData["Title"] = "AddOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Add Order</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddOrder" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SourceLocation" class="control-label"></label>
+                <input asp-for="SourceLocation" class="form-control" />
+                <span asp-validation-for="SourceLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CurrentLocation" class="control-label"></label>
+                <input asp-for="CurrentLocation" class="form-control" />
+                <span asp-validation-for="CurrentLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination" class="control-label"></label>
+                <input asp-for="Destination" class="form-control" />
+                <span asp-validation-for="Destination" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ETA" class="control-label"></label>
+                <input asp-for="ETA" class="form-control" />
+                <span asp-validation-for="ETA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Order" class="btn btn-primary" />
+            </div>
+        </form>
+        @ViewBag.Message
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Orders" asp-action="AllOrders">All Orders</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
