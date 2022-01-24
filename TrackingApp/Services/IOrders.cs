@@ -14,5 +14,6 @@ namespace TrackingApp.Services
         public void DeleteOrder(int? id);
         public Orders PickOrder(int id);
         public void DeleteTheOrder(Orders order);
+        public Orders OrderDetails(int Id);
     }
 }

@@ -65,5 +65,10 @@ namespace TrackingApp.Services
         {
            return (_context.Orders.FirstOrDefault(s => s.OrderId == id));
         }
+
+        public Orders OrderDetails(int Id)
+        {
+            return _context.Orders.FirstOrDefault(s=>s.OrderId == Id);
+        }
     }
 }

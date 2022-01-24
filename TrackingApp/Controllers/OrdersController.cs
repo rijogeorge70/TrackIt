@@ -52,6 +52,12 @@ namespace TrackingApp.Controllers
 
         }
 
+        
+        public IActionResult Details(int id)
+        {
+            return View(iss.OrderDetails(id));
+        }
+
         [HttpGet]
         public IActionResult PickOrder(int id)
         {
