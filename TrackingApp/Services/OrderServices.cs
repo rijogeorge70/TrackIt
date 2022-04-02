@@ -32,7 +32,7 @@ namespace TrackingApp.Services
             {
                 Orders Order = _context.Orders.FirstOrDefault(s => s.OrderId == id);
                 Order = order;
-                _context.Orders.Update(Order);
+                _context.Orders.Update(order);
                 _context.SaveChanges();
             }
         }
