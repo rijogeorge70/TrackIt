@@ -30,7 +30,8 @@ namespace TrackingApp.Services
             }
             else
             {
-                Orders Order = _context.Orders.FirstOrDefault(s => s.OrderId == id);
+                //Orders Order = _context.Orders.FirstOrDefault(s => s.OrderId == id);
+                Orders Order = _context.Orders.Where(s => s.OrderId == id).FirstOrDefault();
                 Order = order;
                 _context.Orders.Update(order);
                 _context.SaveChanges();

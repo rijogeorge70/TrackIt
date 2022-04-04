@@ -13,6 +13,7 @@ namespace TrackingApp.Models
         {
 
         }
+
         public DbSet<Orders> Orders { get; set; }
     }
 }
