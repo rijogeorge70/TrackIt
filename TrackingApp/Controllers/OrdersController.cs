@@ -33,7 +33,17 @@ namespace TrackingApp.Controllers
         public IActionResult AddOrder(Orders NewOrder, int? id)
         {
             iss.AddOrder(NewOrder, id);
-            ViewBag.Message = "New Order from  " + NewOrder.SourceLocation + " to "+NewOrder.Destination +" added Successfully";
+
+            if(id == null)
+            {
+                ViewBag.AddMessage = "New Order from  " + NewOrder.SourceLocation + " to " + NewOrder.Destination + " Added Successfully";
+            }
+            else
+            {
+                ViewBag.AddMessage = "Order from  " + NewOrder.SourceLocation + " to " + NewOrder.Destination + " Edited Successfully";
+            }
+
+            
             ModelState.Clear();
             return View();
         }

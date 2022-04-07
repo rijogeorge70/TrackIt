@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -31,9 +32,12 @@ namespace TrackingApp.Services
             else
             {
                 //Orders Order = _context.Orders.FirstOrDefault(s => s.OrderId == id);
-                Orders Order = _context.Orders.Where(s => s.OrderId == id).FirstOrDefault();
+                Orders Order = _context.Orders.AsNoTracking().Where(s => s.OrderId == id).FirstOrDefault();
+                //order.OrderId = Order.OrderId;
+                if(id!=null)
+                { order.OrderId = (int)id; }
                 Order = order;
-                _context.Orders.Update(order);
+                _context.Orders.Update(Order);
                 _context.SaveChanges();
             }
         }

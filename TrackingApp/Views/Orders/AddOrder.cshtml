@@ -33,10 +33,19 @@
                 <span asp-validation-for="ETA" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Add Order" class="btn btn-primary" />
+                @if (ViewData.ModelState.Count > 0)
+                {
+                    <input type="submit" value="Edit Order" class="btn btn-primary" />
+                  
+                }
+                else
+                {
+                    <input type="submit" value="Add Order" class="btn btn-primary" />
+                   
+                }
             </div>
         </form>
-        @ViewBag.Message
+        @ViewBag.AddMessage
     </div>
 </div>
 
